@@ -18,15 +18,28 @@ public class PesoIdeal {
 			
 			if(ideal >= 72.7) {
 				
-				JOptionPane.showMessageDialog(null, "Est� ");
+				JOptionPane.showMessageDialog(null, "Está acima do peso ideal: " + ideal);
+				
+			}else {
+				
+				JOptionPane.showMessageDialog(null, "Está abaixo do peso ideal: " + ideal);
 				
 			}
 			
-			
-			
 		}else if(sexo == 'F') {
 			
+			
 			ideal = (62.1 * altura) - 44.7;
+			
+			if (ideal >= 62.1) {
+				
+				JOptionPane.showMessageDialog(null, "Está acima do peso ideal: " + ideal);
+				
+			}else {
+				
+				JOptionPane.showMessageDialog(null, "Está abaixo do peso ideal: " + ideal);
+				
+			}
 			
 		}
 		
