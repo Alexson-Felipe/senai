@@ -4,49 +4,35 @@ import javax.swing.JOptionPane;
 
 public class EmpresaKanoha {
 
-	static double horaTrabalhada, hora, salarioLiquido;
-	static char gerente;
+	static double horasTrabalhadas, horas, salarioBruto, salarioLiquido;
+	static int gerente;
 
 	public static void main(String[] args) {
-	
-		horaTrabalhada = Double.parseDouble(JOptionPane.showInputDialog("Quantas horas trabalhou"));
-		gerente = JOptionPane.showInputDialog("É gerente? S = Sim N = Não").charAt(0);
-		
-		if(horaTrabalhada > 8) {
-			
-			if(gerente == 'S') {
-				
-				hora = (((8 * 10) + ((horaTrabalhada - 8) * 15)) * 1.25);
-				salarioLiquido = hora - (hora * 0.1);
-				JOptionPane.showMessageDialog(null, "Salário Bruto = R$" + hora + "\nSalário Líquido = R$" + salarioLiquido);
-				
-			}else if(gerente == 'N') {
-				
-				hora = (8 * 10) + ((horaTrabalhada - 8) * 15);
-				salarioLiquido = hora - (hora * 0.1);
-				JOptionPane.showMessageDialog(null, "Salário Bruto = R$" + hora + "\nSalário Líquido = R$" + salarioLiquido);
-			}
-			
+
+		horas = Double.parseDouble(JOptionPane.showInputDialog("Quantas horas trabalhou"));
+		gerente = Integer.parseInt(JOptionPane.showInputDialog("É gerente? 1 = Sim 0 = Não"));
+
+		// Verifica se o funionario fez hora extra.
+
+		if (horasTrabalhadas > 8) {
+
+			salarioBruto = ((horasTrabalhadas - 8) * 15) + 80;
+
+		} else {
+
+			salarioBruto = horasTrabalhadas * 10;
 		}
-	
-		else {
-	
-			if(gerente == 'S') {
-				
-				hora = ((8 * 10) * 1.25);
-				salarioLiquido = hora - (hora * 0.1);
-				JOptionPane.showMessageDialog(null, "Salário Bruto = R$" + hora + "\nSalário Líquido = R$" + salarioLiquido);
-				
-			}else if(gerente == 'N') {
-				
-				hora = 8 * 10;
-				salarioLiquido = hora - (hora * 0.1);
-				JOptionPane.showMessageDialog(null, "Salário Bruto = R$" + hora + "\nSalário Líquido = R$" + salarioLiquido);
-			}
-				
-			}
-			
+
+		// Verifica se é gerente
+
+		if (gerente == 1) {
+			salarioBruto = salarioBruto * 1.25;
+		}
+
+		salarioLiquido = salarioBruto - (salarioBruto * 0.10);
+
+		JOptionPane.showMessageDialog(null,
+				"Seu salario bruto é: " + salarioBruto + "\nSalario Liquido: " + salarioLiquido);
 
 	}
-
 }
