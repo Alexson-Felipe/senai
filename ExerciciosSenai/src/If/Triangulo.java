@@ -1,4 +1,4 @@
-package Exe31;
+package If;
 
 import javax.swing.JOptionPane;
 
@@ -14,10 +14,10 @@ public class Triangulo {
 		
 		if ((lado1 == lado2) && (lado1 == lado3) && (lado2 == lado3)) {
 			JOptionPane.showMessageDialog(null, "Triângulo Equilátero");
-		}else if ((lado1 != lado2) && (lado1 != lado3)) { // Falta terminar
-			JOptionPane.showMessageDialog(null, "Triângulo Isóscele");
-		}else {
+		}else if ((lado1 != lado2) && (lado1 != lado3)) { 
 			JOptionPane.showMessageDialog(null, "Triângulo Escaleno");
+		}else {
+			JOptionPane.showMessageDialog(null, "Triângulo Isóscele");
 		}
 		
 	}

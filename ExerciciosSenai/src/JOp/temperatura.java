@@ -1,4 +1,4 @@
-package Exe23;
+package JOp;
 import javax.swing.JOptionPane;
 
 public class temperatura {

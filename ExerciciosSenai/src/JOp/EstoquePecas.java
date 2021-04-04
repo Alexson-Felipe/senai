@@ -1,4 +1,4 @@
-package Exe24;
+package JOp;
 import javax.swing.JOptionPane;
 
 public class EstoquePecas {

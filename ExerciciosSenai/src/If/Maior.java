@@ -1,4 +1,4 @@
-package Exe31;
+package If;
 
 import javax.swing.JOptionPane;
 
