@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Ati01 {
 	
-	//Calculadora simples
+	//Calculadoraa simples
 	
 	static double v1, v2, calculando;
 	static char operacao;
