@@ -4,13 +4,13 @@ import javax.swing.JOptionPane;
 
 public class Ati09 {
 	
-	static int nota1, nota2, freq, media;
+	static double nota1, nota2, freq, media;
 
 	public static void main(String[] args) {
 		
-		nota1 = Integer.parseInt(JOptionPane.showInputDialog("Digite a primeira nota"));
-		nota2 = Integer.parseInt(JOptionPane.showInputDialog("Digite a segunda nota"));
-		freq = Integer.parseInt(JOptionPane.showInputDialog("Qual a Frequencia"));
+		nota1 = Double.parseDouble(JOptionPane.showInputDialog("Digite a primeira nota"));
+		nota2 = Double.parseDouble(JOptionPane.showInputDialog("Digite a segunda nota"));
+		freq = Double.parseDouble(JOptionPane.showInputDialog("Qual a Frequencia"));
 		media = (nota1 + nota2) / 2;
 		
 		if(media >= 7 && freq >= 75) {
