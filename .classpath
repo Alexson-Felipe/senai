@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="ExerciciosSenai/src"/>
-	<classpathentry excluding="src/" kind="src" path="ExerciciosSenai"/>
+	<classpathentry kind="src" path="AtiRevTop"/>
+	<classpathentry kind="src" path="Case"/>
+	<classpathentry kind="src" path="If"/>
+	<classpathentry kind="src" path="JOp"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
