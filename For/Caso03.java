@@ -2,14 +2,14 @@ import javax.swing.JOptionPane;
 
 public class Caso03 {
 
-	//Isso faz eu perder cabelo.
+	//Isso fez eu perder cabelo.
 	
 	/*
 	 * Construa um algoritmo para calcular
 	 * um VALOR e um EXPOENTE. Os valores de VALOR e EXPOENTE
 	 * devem ser lidos do usuario. Ao final apresentar o seu valor.
 	 * 
-	 * Não utilizar Math.pow
+	 * Nao utilizar Math.pow
 	 * 
 	 */
 	static double valor, expoente, resultado;
