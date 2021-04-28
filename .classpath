@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="If"/>
 	<classpathentry kind="src" path="JOp"/>
 	<classpathentry kind="src" path="ProvDia2004"/>
+	<classpathentry kind="src" path="For"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
