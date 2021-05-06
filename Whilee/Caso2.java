@@ -19,6 +19,7 @@ public class Caso2 {
 				}else {
 					menu = Integer.parseInt(JOptionPane.showInputDialog("Digite uma valor certo!"));
 					menu = 1;
+					
 				}
 			}
 		

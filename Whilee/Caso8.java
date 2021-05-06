@@ -18,10 +18,10 @@ public class Caso8 {
 
 		while (calc <= 10) {
 
-			JOptionPane.showMessageDialog(null,
-					(valorTab + " x " + "1 = " + valorTab * 1) + (valorTab + " x " + "2 = " + valorTab * 2)
-							+ (valorTab + " x " + "3 = " + valorTab * 3) + (valorTab + " x " + "4 = " + valorTab * 4) + (valorTab + " x " + "5 = " + valorTab * 5));
-
+			JOptionPane.showMessageDialog(null, valorTab + " x " + calc + " = " + (calc * valorTab));
+			calc++;
+			
+			
 		}
 
 	}
