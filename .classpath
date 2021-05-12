@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="ProvDia2004"/>
 	<classpathentry kind="src" path="For"/>
 	<classpathentry kind="src" path="Whilee"/>
+	<classpathentry kind="src" path="Do"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

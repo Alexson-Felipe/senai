@@ -15,7 +15,6 @@ public class Caso5 {
 			}
 			
 			cont++;
-			
 		}
 		
 		JOptionPane.showMessageDialog(null, deMaior + " Pessoa(s) apena(s) de Maior ");
