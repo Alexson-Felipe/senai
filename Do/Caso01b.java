@@ -19,7 +19,6 @@ public class Caso01b {
 			System.out.println("Cont: " + cont + " Resto: " + resto + "Resultado" + resultado);
 			
 		}while(cont <= numero);
-		
 
 	}
 
