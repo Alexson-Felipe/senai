@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class ativ01 {
+public class Ativ01 {
 
 	static double altura, menorAltura, maiorAltura;
 	

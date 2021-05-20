@@ -2,7 +2,7 @@ import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 
-public class ativ02 {
+public class Ativ02 {
 
 	static int numero, cont1, cont2;
 
