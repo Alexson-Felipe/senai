@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /**
  * 
  * Criar um vetor A com 10 elementos inteiros. Construir um vetor B de mesmo
@@ -15,7 +17,10 @@ public class Caso003c {
 		elementoB = new int[elementoA.length];
 		
 		for (int i = 0; i < elementoA.length; i++) {
+			elementoA[i] = Integer.parseInt(JOptionPane.showInputDialog("Valor do elemento A na posição: " + i));
+			elementoB[i] = elementoA[i] * i;	
 			
+			JOptionPane.showMessageDialog(null, "O valor de A é: " + elementoA[i] + "\nO valor de B é: " + elementoB[i]);
 		}
 
 	}
