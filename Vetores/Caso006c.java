@@ -6,9 +6,9 @@ import javax.swing.JOptionPane;
  * terceiro vetor de 20 elementos, cujos valores deverão ser compostos pelos
  * elementos intercalados dos dois outros vetores.
  *
- */
-
-/*
+ *
+ *
+ *
  * Foi de arrancar cabelo.
  */
 
@@ -19,7 +19,7 @@ public class Caso006c {
 
 	public static void main(String[] args) {
 
-		vetor1 = new int[10];
+		vetor1 = new int[5];
 		vetor2 = new int[vetor1.length];
 		vetor3 = new int[vetor1.length + vetor1.length];
 
@@ -27,23 +27,30 @@ public class Caso006c {
 
 			vetor1[i] = Integer.parseInt(JOptionPane.showInputDialog("Vetor 1 posição: " + i));
 			vetor2[i] = Integer.parseInt(JOptionPane.showInputDialog("Vetor 2 posição: " + i));
+			
+			// if (i == (vetor1.length - 1)) {
+			// for (int j = 0; j < vetor3.length; j++) {
+			// if (j % 2 == 0) {
+			//// vetor3[j] = vetor1[aux1];
+			// System.out.println("Vetor3 recebeu: " + vetor3[j] + " do Vetor1");
+			// aux1++;
+			// }
 
-			if (i == (vetor1.length - 1)) {
-				for (int j = 0; j < vetor3.length; j++) {
-					if (j % 2 == 0) {
-						vetor3[j] = vetor1[aux1];
-						System.out.println("Vetor3 recebeu: " + vetor3[j] + " do Vetor1");
-						aux1++;
-					}
+			// if (j % 2 == 1) {
+			// vetor3[j] = vetor2[aux2];
+			// System.out.println("Vetor3 recebeu: " + vetor3[j] + " do Vetor2");
+			// aux2++;
+			// }
+			// }
+			// }
 
-					if (j % 2 == 1) {
-						vetor3[j] = vetor2[aux2];
-						System.out.println("Vetor3 recebeu: " + vetor3[j] + " do Vetor2");
-						aux2++;
-					}
-				}
-			}
-
+		}
+		
+		for (int j = 0; j < vetor1.length; j++) {
+			vetor3[j] = vetor1[j];
+			vetor3[j + 1] = vetor2[j];
+			System.out.println("Vetor3: " + vetor3[j]);
+			System.out.println("Vetor3: " + vetor3[j + 1]);
 		}
 
 	}

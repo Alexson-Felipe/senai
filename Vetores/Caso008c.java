@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class Caso008c {
 
 	static int[] posicoes, numerosIguais;
-	static int aux = 1;
+	//static int aux = 1;
 
 	public static void main(String[] args) {
 
@@ -24,8 +24,8 @@ public class Caso008c {
 			if (i == (posicoes.length - 1)) {
 
 				for (int j = 0; j < posicoes.length; j++) {
-					for (int k = j + 1; k < posicoes.length; k++) {
-						if (posicoes[j] == posicoes[k]) {
+					for (int k = 0; k < posicoes.length; k++) {
+						if (posicoes[j] == posicoes[k] && i != j) {
 							System.out.println("Iguais " + posicoes[j]);
 						}
 					}

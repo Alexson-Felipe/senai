@@ -8,6 +8,9 @@ import javax.swing.JOptionPane;
  * e mostre o total de números que foram digitados fora desse intervalo.
  *
  */
+
+
+//falta terminar
 public class Caso011c {
 
 	static int[] intervalo;

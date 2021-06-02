@@ -20,11 +20,10 @@ public class Caso002c {
 		for (int i = 0; i < elementoA.length; i++) {
 			elementoA[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor na posição " + i));
 			elementoB[i] = elementoA[i] * elementoA[i]; 
+			//JOptionPane.showMessageDialog(null, "Elemento A: " + elementoA[i] + "\nElementoB ao quadrado: " + elementoB[i]);
+			System.out.println("Elemento A: " + elementoA[i] + "\nElementoB ao quadrado: " + elementoB[i]);
 		}
-		
-		for (int i = 0; i < elementoA.length; i++) {
-			JOptionPane.showMessageDialog(null, "Elemento A: " + elementoA[i] + "\nElementoB ao quadrado: " + elementoB[i]);
-		}
+
 		
 	}
 
