@@ -10,5 +10,6 @@
 	<classpathentry kind="src" path="Whilee"/>
 	<classpathentry kind="src" path="Do"/>
 	<classpathentry kind="src" path="Vetores"/>
+	<classpathentry kind="src" path="Matrizes"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

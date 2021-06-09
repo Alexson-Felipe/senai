@@ -26,7 +26,8 @@ public class Caso011c {
 			if (i == intervalo.length - 1) {
 				for (int j = 0; j < intervalo.length; j++) {
 					if (intervalo[j] >= 0 && intervalo[j] <= 50) {
-						System.out.println("O Valor: " + intervalo[j] + " está entre dentro de <0, 50>");
+						System.out.println("O Valor: " + intervalo[j] + " e"
+								+ "stá entre dentro de <0, 50>");
 					} else {
 						System.out.println("O Valor: " + intervalo[j] + " não fora de <0, 50>");
 					}

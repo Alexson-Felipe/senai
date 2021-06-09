@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 import javax.swing.JOptionPane;
 
 public class Ativ02 {
