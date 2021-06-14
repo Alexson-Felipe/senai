@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 /**
  * 
@@ -7,9 +8,27 @@
  */
 
 public class Caso09d {
+	
+	static int[] vetor1, vetor2;
+	static int[][] matriz;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		vetor1 = new int[10];
+		vetor2 = new int[vetor1.length];
+		matriz = new int[vetor1.length][vetor1.length];
+		
+		for (int i = 0; i < vetor1.length; i++) {
+			vetor1[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite um valor para o vetor 1"));
+			vetor2[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite um valor para o vetor 2"));
+			
+			matriz[i][i] = vetor1[i] + vetor2[i];
+			
+		}
+		
+		for (int i = 0; i < vetor1.length; i++) {
+			System.out.println(matriz[i][i]);
+		}
 
 	}
 

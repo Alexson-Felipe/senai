@@ -11,18 +11,33 @@ import javax.swing.JOptionPane;
 public class Caso08d {
 
 	static int[][] matriz;
-	static double media;
-	
+	static double[] media;
+
 	public static void main(String[] args) {
-		
-	matriz = new int[5][4];
-	
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 4; j++) {
-			matriz[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Digite um valor"));
+
+		matriz = new int[5][4];
+		media = new double[5];
+
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 4; j++) {
+				matriz[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Digite um valor para: \nLinha["+i+"] Coluna["+j+"]"));
+				media[i] += matriz[i][j]; 
+				
+			}
+			
+			media[i] = media[i] / 20;
 		}
-	}
 		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 4; j++) {
+				
+				if (media[i] < matriz[i][j]) {
+					System.out.println("Linha["+i+"] Coluna["+j+"] \nO valor " + matriz[i][j] + " é maior que a média: " + media[i]);
+				}
+			}
+		}
+		
+
 	}
 
 }
