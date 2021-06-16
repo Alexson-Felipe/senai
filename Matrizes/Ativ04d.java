@@ -25,16 +25,15 @@ public class Ativ04d {
 			pessoas[i][1] = JOptionPane.showInputDialog("Telefone");
 			pessoas[i][2] = JOptionPane.showInputDialog("Valor comprado");
 
-			JOptionPane.showMessageDialog(null,
-					"Cliente " + pessoas[i][0] + " de telefone " + pessoas[i][1] + " comprou R$" + pessoas[i][2]);
-			
+			// JOptionPane.showMessageDialog(null,
+			// "Cliente " + pessoas[i][0] + " de telefone " + pessoas[i][1] + " comprou R$"
+			// + pessoas[i][2]);
+
 			soma += Double.parseDouble(pessoas[i][2]);
 
 		}
-		
+
 		System.out.println("O valor total comprado é de: " + soma);
-		
-		
 
 	}
 
