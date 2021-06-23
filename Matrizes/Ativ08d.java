@@ -31,61 +31,63 @@ import javax.swing.JOptionPane;
 public class Ativ08d {
 
 	static String[][] produtos;
-	static int menu;
-	
+	static int menu, cont;
+
 	public static void main(String[] args) {
-		
-		int linha = 1;
+
+		int linha = 2;
 		produtos = new String[linha][5];
-		
-		
-		//MENU
+
+		// MENU
 		do {
-			
+
 			menu = Integer.parseInt(JOptionPane.showInputDialog("[1] - Adicionar produto ao carrinho\n"
 					+ "[2] - Remover produto por código\n" + "[3] - Ver carrinho\n" + "[4] - Ir para checkout\n"));
-			
+
 			switch (menu) {
 			case 1:
-				
-				// Obs = Criar uma variavel de controle
-				
+
 				for (int i = 0; i < linha; i++) {
-					if (produtos[i][0].equals("")) {
+					if (produtos[i][0] == null) {
 
-						System.out.println("test");
+						produtos[i][0] = JOptionPane.showInputDialog("Código " + i);
+						produtos[i][1] = JOptionPane.showInputDialog("Descrição");
+						produtos[i][2] = JOptionPane.showInputDialog("Quantidade");
+						produtos[i][3] = JOptionPane.showInputDialog("Valor unitário");
+						produtos[i][4] = JOptionPane.showInputDialog("Subtotal");
+						
+						System.out.println("Produto " + produtos[i][0] + " cadastrado.");
+						cont = 0;
+						
+						break;
 
+					} else if (cont == linha - 1) {
+						System.out.println("Nenhum campo vazio, excluia algum produto");
+						break;
+					} else {
+						cont++;
 					}
-					produtos[i][0] = JOptionPane.showInputDialog("Código " + i );
-					///produtos[i][1] = JOptionPane.showInputDialog("Descrição");
-					//produtos[i][2] = JOptionPane.showInputDialog("Quantidade");
-					//produtos[i][3] = JOptionPane.showInputDialog("Valor unitário");
-					//produtos[i][4] = JOptionPane.showInputDialog("Subtotal");
-				// else {
-						
-						
-					//}
 
 				}
+
+				break;
+
+			case 2:
 				
+				
+
 				break;
 
 			default:
 				break;
 			}
-			
-		} while (menu < 5);
-		
-		
-		
-		for (int i = 0; i < linha; i++) {
-			
-			
-			
-		}
-		
 
-		
+		} while (menu < 5);
+
+		for (int i = 0; i < linha; i++) {
+
+		}
+
 	}
 
 }
