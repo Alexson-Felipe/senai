@@ -26,9 +26,9 @@ public class Caso04e {
 
 
 		
-		reajusteSalario = funcionariosSalario(funcionariosSalario, funcionariosNome);
+		reajusteSalario = funcSalario(funcionariosSalario, funcionariosNome);
 
-		
+		//com erro
 		for (int i = 0; i < funcionariosNome.length; i++) {
 			System.out.println(
 					funcionariosNome[i] + " ANTES " + funcionariosSalario[i] + " DEPOIS " + reajusteSalario[i]);
@@ -36,15 +36,15 @@ public class Caso04e {
 
 	}
 
-	private static double[] funcionariosSalario(double[] funcionariosSalario2, String[] funcionariosNome2) {
-
-		for (int i = 0; i < funcionariosSalario2.length; i++) {
-
-			funcionariosSalario2[i] = Double.parseDouble(JOptionPane
-					.showInputDialog("Digite um novo valor de salario para o funcionario: " + funcionariosNome2[i]));
+	private static double[] funcSalario(double[] funcionariosSalario, String[] funcionariosNome) {
+		
+		for (int i = 0; i < funcionariosNome.length; i++) {
+			
+			funcionariosSalario[i] = Double.parseDouble(JOptionPane.showInputDialog("Digite o novo salario para o funcionario " + funcionariosNome[i]));
+			
 		}
-
-		return funcionariosSalario2;
+		return funcionariosSalario;
 	}
+
 
 }

@@ -1,3 +1,7 @@
+
+//Arrumar o código
+
+/**
 import javax.swing.JOptionPane;
 
 /**
@@ -7,20 +11,31 @@ import javax.swing.JOptionPane;
  * função responsável por extrair o primeiro nome e devolver para o algoritmo
  * principal.
  *
- */
+ *
 
 public class Caso02e {
 	
 	static String nome;
+	static String primeiro;
 
 	public static void main(String[] args) {
 
+		
+		
 		nome = JOptionPane.showInputDialog("Digite seu nome completo");
 		
-		String[] nomeCompleto = nome.split(" ");
+		primeiro = separaNome(nome);
 		
-		JOptionPane.showMessageDialog(null, nomeCompleto[0]);
+		JOptionPane.showMessageDialog(null, primeiro[0]);
 		
 	}
 
+	private static String separaNome(String nome2) {
+		
+		String[] vetorNome;
+		vetorNome = nome.split(" ");
+		return vetorNome;
+	}
+
 }
+*/
