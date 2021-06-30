@@ -1,4 +1,4 @@
 # LogicaDeProgramacao-Senai
 
 
-Exercicos apresentado no periodo de aula.
+Exercicios apresentado no periodo de aula.
