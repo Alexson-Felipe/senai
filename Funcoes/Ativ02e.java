@@ -24,6 +24,8 @@ public class Ativ02e {
 		}
 
 		vogaisOuConsoantes = vOuCon(nomeAluno);
+		
+		//vericafa(nomeAluno); cria uma função void
 
 		System.out.println(vogaisOuConsoantes);
 
