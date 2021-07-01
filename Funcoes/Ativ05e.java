@@ -14,6 +14,8 @@ public class Ativ05e {
 			
 			verificaTroco(vendas[i]);
 				
+			
+			
 		}
 
 	}
