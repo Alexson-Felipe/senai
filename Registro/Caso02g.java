@@ -11,8 +11,6 @@ import javax.swing.JOptionPane;
  */
 public class Caso02g {
 
-	static double CalcularMedia;
-
 	static class ProvasAluno {
 		String dataRealizacao;
 		double nota;
@@ -30,24 +28,31 @@ public class Caso02g {
 	public static void main(String[] args) {
 
 		ProvasAluno prova = new ProvasAluno();
-		ArmazenaDados dados = new ArmazenaDados();
+		ProvasAluno prova2 = new ProvasAluno();
+		ProvasAluno prova3 = new ProvasAluno();
+
+		ArmazenaDados armazena = new ArmazenaDados();
 
 		prova.dataRealizacao = JOptionPane.showInputDialog("Digite a data da realização da prova");
 
-		dados.nome = JOptionPane.showInputDialog("Nome do aluno");
-		dados.idade = Integer.parseInt(JOptionPane.showInputDialog("Idade do aluno"));
-//Rever isso -- tá errado
-		dados.primeiraProva.nota = Double.parseDouble(JOptionPane.showInputDialog("Primeira nota"));
-		dados.segundaProva.nota = Double.parseDouble(JOptionPane.showInputDialog("Segunda nota"));
-		dados.terceiraProva.nota = Double.parseDouble(JOptionPane.showInputDialog("Terceira nota"));
+		armazena.nome = JOptionPane.showInputDialog("Nome do aluno");
+		armazena.idade = Integer.parseInt(JOptionPane.showInputDialog("Idade do aluno"));
 
-		CalcularMedia = calculaMedia(dados.primeiraProva.nota, dados.segundaProva.nota, dados.terceiraProva.nota);
+		prova.nota = Double.parseDouble(JOptionPane.showInputDialog("Primeira nota"));
+		prova2.nota = Double.parseDouble(JOptionPane.showInputDialog("Segunda nota"));
+		prova3.nota = Double.parseDouble(JOptionPane.showInputDialog("Terceira nota"));
+
+		armazena.primeiraProva = prova;
+		armazena.segundaProva = prova2;
+		armazena.terceiraProva = prova3;
+
+		double CalcularMedia = calculaMedia(armazena.primeiraProva.nota, armazena.segundaProva.nota,
+				armazena.terceiraProva.nota);
 
 		System.out.println(CalcularMedia);
 	}
 
 	private static double calculaMedia(double nota, double nota2, double nota3) {
-		// TODO Auto-generated method stub
 		return ((nota + nota2 + nota3) / 3);
 	}
 
