@@ -1,3 +1,4 @@
+
 import javax.swing.JOptionPane;
 
 /**
@@ -9,47 +10,61 @@ import javax.swing.JOptionPane;
  * Uma fun��o deve ser utilizada para o calculo da m�dia
  *
  */
+
 public class Caso02g {
 
-	static double CalcularMedia;
-
-	static class ProvasAluno {
+	static class Prova {
 		String dataRealizacao;
 		double nota;
-
 	}
 
-	static class ArmazenaDados {
+	static class Aluno {
 		String nome;
-		ProvasAluno primeiraProva, segundaProva, terceiraProva;
-
 		int idade;
+		Prova p1;
+		
+		Prova p2;
+		Prova p3;
 
 	}
 
 	public static void main(String[] args) {
 
-		ProvasAluno prova = new ProvasAluno();
-		ArmazenaDados dados = new ArmazenaDados();
+		Aluno aluno = new Aluno();
+		Prova prova1 = new Prova();
+		Prova prova2 = new Prova();
+		Prova prova3 = new Prova();
 
-		prova.dataRealizacao = JOptionPane.showInputDialog("Digite a data da realiza��o da prova");
+		aluno.nome = JOptionPane.showInputDialog("Digite seu nome");
+		aluno.idade = Integer.parseInt(JOptionPane.showInputDialog("Digite a sua idade"));
 
-		dados.nome = JOptionPane.showInputDialog("Nome do aluno");
-		dados.idade = Integer.parseInt(JOptionPane.showInputDialog("Idade do aluno"));
-		
-//Rever isso -- ta errado
-		dados.primeiraProva.nota = Double.parseDouble(JOptionPane.showInputDialog("Primeira nota"));
-		dados.segundaProva.nota = Double.parseDouble(JOptionPane.showInputDialog("Segunda nota"));
-		dados.terceiraProva.nota = Double.parseDouble(JOptionPane.showInputDialog("Terceira nota"));
+		prova1.dataRealizacao = JOptionPane.showInputDialog("Digite quando a PRIMEIRA prova foi feita");
+		prova1.nota = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota da sua PRIMEIRA prova"));
 
-		CalcularMedia = calculaMedia(dados.primeiraProva.nota, dados.segundaProva.nota, dados.terceiraProva.nota);
+		aluno.p1 = prova1;
 
-		System.out.println(CalcularMedia);
+		prova2.dataRealizacao = JOptionPane.showInputDialog("Digite quando a SEGUNDA prova foi feita");
+		prova2.nota = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota da sua SEGUNDA prova"));
+
+		aluno.p2 = prova2;
+
+		prova3.dataRealizacao = JOptionPane.showInputDialog("Digite quando a TERCEIRA prova foi feita");
+		prova3.nota = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota da sua TERCEIRA prova"));
+
+		aluno.p3 = prova3;
+
+		double mediaFinal = calculaMedia(aluno.p1.nota, aluno.p2.nota, aluno.p3.nota);
+
+		System.out.println("Media do " + aluno.nome + " foi: " + mediaFinal);
+
 	}
 
 	private static double calculaMedia(double nota, double nota2, double nota3) {
 		// TODO Auto-generated method stub
-		return ((nota + nota2 + nota3) / 3);
+
+		double retornaMedia = (nota + nota2 + nota3) / 3;
+
+		return retornaMedia;
 	}
 
 }
