@@ -15,12 +15,17 @@ public class Caso001g {
 	}
 
 	static class Categoria {
-		int condigoCat;
+		int codigoCat;
 		String descricaoCat;
+		Cardapio cardapio;
 	}
 
 	public static void main(String[] args) {
 
+		//Inicia vetor
+		categoria = new Categoria[1];
+		
+		
 		do {
 			menu = 0;
 			menu = Integer.parseInt(JOptionPane.showInputDialog(
@@ -49,10 +54,12 @@ public class Caso001g {
 				
 				if (menuu == 1) {
 					
-					categoria = new Categoria[1];
-	//fazer apartir daqui				
+					
+				
 					for (int i = 0; i < categoria.length; i++) {
-						categoria[i]
+						novaCategoria = new Categoria();
+						categoria[i].codigoCat = 1;
+						//novaCategoria.condigoCat = 1;
 						if (categoria[i] != null) {
 							System.out.println("Entrou");
 						}
