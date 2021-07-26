@@ -1,3 +1,5 @@
+//exemplo criar venda A
+
 import javax.swing.JOptionPane;
 
 public class Delivery {
@@ -19,11 +21,10 @@ public class Delivery {
 	static Produto[] produto;
 	static Produto novoProduto;
 	static int contProduto;
-	static String[] produtosCadastrar, separaProduto; 
+	static String[] produtosCadastrar, separaProduto;
 
 	static class Produto {
-		
-		int codigo;
+		int codigoProduto;
 		String nomeProduto;
 		double valor;
 	}
@@ -39,8 +40,10 @@ public class Delivery {
 	// Fim Variaveis e Registros
 
 	public static void main(String[] args) {
+		//Definindo o tamanho de todos vetores Memoria;
+		venda = new Vendas[quantidade];
 		
-
+		
 		do {
 			menu = 0;
 			menu = Integer.parseInt(JOptionPane
@@ -90,8 +93,8 @@ public class Delivery {
 
 	// Procedimento Menu Vendas
 	private static void fazVenda() {
-		venda = new Vendas[quantidade];
 		
+
 		menu = 0;
 		menu = Integer.parseInt(
 				JOptionPane.showInputDialog("1 - Criar Venda\n2 - Editar Venda\n3 - Visualizar Venda\n4 - Voltar"));
@@ -102,6 +105,11 @@ public class Delivery {
 			case 1:
 
 				criaVenda();
+
+				break;
+			case 2:
+
+				editarVenda();
 
 				break;
 
@@ -123,8 +131,8 @@ public class Delivery {
 
 				if (novaVenda.descricaoVendas.length() >= 5) {
 
-					//
 					venda[contVenda] = novaVenda;
+
 					contVenda++;
 
 				} else {
@@ -136,12 +144,25 @@ public class Delivery {
 		} while (novoCliente.nome.length() < 5);
 
 	}
+
+	private static void editarVenda() {
+
+		for (int i = 0; i < venda.length; i++) {
+			if (Integer.toString(venda[i].codigoVendas) == "null") {
+				System.out.println("Entrou");
+				// System.out.println(venda[i].codigoVendas);
+			}
+
+		}
+		// int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Digite o "));
+
+	}
 	// Fim Menu Vendas.
 
 	// Procedimento Menu Produtos
 	private static void fazProdutos() {
 
-		produto = new Produto[quantidade];
+		produto = new Produto[100];
 		menu = 0;
 		menu = Integer.parseInt(JOptionPane.showInputDialog(
 				"1 - Importar produto \n2 - Editar produto \n3 - Visualizar produto" + "\n4 - Voltar"));
@@ -163,15 +184,37 @@ public class Delivery {
 
 					novoProduto.nomeProduto = separaProduto[0];
 					novoProduto.valor = Double.parseDouble(separaProduto[1]);
+					novoProduto.codigoProduto = i;
 
 					produto[i] = novoProduto;
 
 				}
 
-				for (int i = 0; i < 3; i++) {
+				break;
+			case 2:
 
-					System.out.println(produto[i].nomeProduto);
-					
+				int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Codigo do produto deseja editar?"));
+				//.codigoProduto = 1;
+				
+				for (int i = 0; i < cliente.length; i++) {
+
+					if (produto[i].codigoProduto == pesquisa) {
+						do {
+							menu = Integer.parseInt(
+									JOptionPane.showInputDialog("1 - Alterar descrição\n2 - Alterar valor\n3 - Sair"));
+							switch (menu) {
+							case 1:
+								produto[i].nomeProduto = JOptionPane.showInputDialog(
+										"Nome do produto: " + produto[i].nomeProduto + "\nDigite um novo nome");
+								break;
+							case 2:
+								produto[i].valor = Double.parseDouble(JOptionPane.showInputDialog(
+										"Valor do produto: " + produto[i].valor + "\nDigite um novo valor"));
+								break;
+							}
+
+						} while (menu > 0 && menu < 3);
+					}
 				}
 
 				break;
@@ -184,13 +227,13 @@ public class Delivery {
 	// Fim Menu Produtos.
 
 	private static void fazCliente() {
-		
+
 		cliente = new Cliente[quantidade];
 		menu = 0;
 		menu = Integer.parseInt(JOptionPane
 				.showInputDialog("1 - Criar cliente \n2 - Editar cliente \n3 - Visualizar cliente" + "\n4 - Voltar"));
 
-		if (menu >= 1 && menu <= 3) {
+		if (menu >= 1 && menu <= 4) {
 
 			switch (menu) {
 			case 1:
@@ -205,46 +248,133 @@ public class Delivery {
 				visualizaCliente();
 				break;
 			default:
+
 				break;
 			}
 
-		} else {
+		} else if (menu <= 0 || menu >= 5) {
 			JOptionPane.showMessageDialog(null, "Opção não encontrada");
+			fazCliente();
 		}
 	}
 
-	private static void editarCliente() {
-		// TODO Auto-generated method stub
-		cliente = new Cliente[contCliente +1];
-		
-		
+	private static void criadorDeCliente() {
 
-		int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo"));
+		cliente = new Cliente[quantidade];
 		
-		for (int i = 0; i < cliente.length ; i++) {
-			if (pesquisa == cliente[i].codigo) {
-				do {
-					menu = 0;
-					menu = Integer.parseInt(JOptionPane
-							.showInputDialog("Escolha o campo que você deseja editar"+"\n1 - Nome\n2 - CPF\n3 - Telefone"));
-				} while (menu > 0 && menu < 4);
-				
-				
-			}
+		for (int i = contCliente; i < cliente.length;) {
+			do {
 
-			}
+				novoCliente = new Cliente();
+				novoCliente.nome = JOptionPane.showInputDialog("Digite seu nome completo");
+				// novoCliente.codigo = Integer.parseInt(JOptionPane.showInputDialog("cd"));
+
+				if (novoCliente.nome.length() >= 5) {
+
+					// CPF
+					do {
+						novoCliente.cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite o seu cpf"));
+
+						if (Integer.toString(novoCliente.cpf).length() == 8) {
+							novoCliente.telefone = Integer
+									.parseInt(JOptionPane.showInputDialog("Digite o seu numero de telefone"));
+
+							JOptionPane.showMessageDialog(null,
+									"Cadastro realizado com sucesso " + "\nSeu codigo: " + contCliente);
+
+							novoCliente.codigo = i;
+							cliente[contCliente] = novoCliente;
+							contCliente++;
+
+						} else {
+							JOptionPane.showMessageDialog(null, "Numero de caracteres precisa igual a 8");
+						}
+
+					} while (Integer.toString(novoCliente.cpf).length() != 8);
+
+					// Fim validacao CPF
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Numero de caracteres precisa ser superior ou igual a 5");
+				}
+
+			} while (novoCliente.nome.length() < 5);
+			break;
+		}//Fim do for
+		
 		
 	}
-			
-	private static void visualizaCliente() {
 
-		cliente = new Cliente[contCliente];
+	private static void editarCliente() {
 
-		int pesquisa = Integer.parseInt(null);
+		// cliente = new Cliente[contCliente + 1];
+
+		int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo"));
 
 		for (int i = 0; i < cliente.length; i++) {
 			if (pesquisa == cliente[i].codigo) {
+				do {
+					menu = 0;
+					menu = Integer.parseInt(JOptionPane.showInputDialog("Escolha o campo que você deseja editar"
+							+ "\n1 - Nome\n2 - CPF\n3 - Telefone\n4 - Cancelar"));
 
+					switch (menu) {
+					case 1:
+						do {
+							novoCliente = new Cliente();
+							novoCliente.nome = JOptionPane.showInputDialog("Novo nome");
+							if (novoCliente.nome.length() >= 5) {
+								JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+								cliente[i] = novoCliente;
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Numero de caracteres precisa ser superior ou igual a 5");
+							}
+						} while (novoCliente.nome.length() < 5);
+
+						break;
+
+					case 2:
+
+						do {
+							novoCliente = new Cliente();
+							novoCliente.cpf = Integer.parseInt(JOptionPane.showInputDialog("Novo CPF"));
+							if (Integer.toString(novoCliente.cpf).length() == 8) {
+								JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+							} else {
+								JOptionPane.showMessageDialog(null, "Numero de caracteres precisa igual a 8");
+							}
+						} while (Integer.toString(novoCliente.cpf).length() != 8);
+						break;
+
+					case 3:
+						cliente[i] = new Cliente();
+						cliente[i].telefone = Integer.parseInt(JOptionPane.showInputDialog("Novo Telefone"));
+						JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+						break;
+					default:
+						break;
+					}
+
+				} while (menu > 0 && menu < 4);
+				break;
+			}
+
+		}
+
+	}
+
+	private static void visualizaCliente() {
+
+		System.out.println(cliente.length);
+
+		int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Qual cliente deseja visualizar?"));
+
+		for (int i = 0; i < cliente.length; i++) {
+
+			if (pesquisa == cliente[i].codigo) {
+				System.out.println("\nCodigo: " + cliente[i].codigo + "\nNome: " + cliente[i].nome + "\nCPF: "
+						+ cliente[i].cpf + "\nTelefone: " + cliente[i].telefone);
 			}
 		}
 
@@ -273,46 +403,6 @@ public class Delivery {
 		} else {
 			JOptionPane.showMessageDialog(null, "Opção não encontrada");
 		}
-	}
-
-	private static void criadorDeCliente() {
-
-		cliente = new Cliente[quantidade];
-
-		do {
-
-			novoCliente = new Cliente();
-			novoCliente.nome = JOptionPane.showInputDialog("Digite seu nome completo");
-
-			if (novoCliente.nome.length() >= 5) {
-
-				// CPF
-				do {
-					novoCliente.cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite o seu cpf"));
-
-					if (Integer.toString(novoCliente.cpf).length() == 8) {
-						novoCliente.telefone = Integer
-								.parseInt(JOptionPane.showInputDialog("Digite o seu numero de telefone"));
-
-						cliente[contCliente] = novoCliente;
-
-						JOptionPane.showMessageDialog(null,
-								"Cadastro realizado com sucesso " + "\nSeu codigo: " + contCliente);
-						contCliente++;
-
-					} else {
-						JOptionPane.showMessageDialog(null, "Numero de caracteres precisa ser superior ou igual a 5");
-					}
-				} while (Integer.toString(novoCliente.cpf).length() != 8);
-
-				// Fim validacao CPF
-
-			} else {
-				JOptionPane.showMessageDialog(null, "Numero de caracteres precisa ser superior ou igual a 5");
-			}
-
-		} while (novoCliente.nome.length() < 5);
-
 	}
 
 }

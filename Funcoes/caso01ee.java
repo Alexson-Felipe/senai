@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class caso01 {
+public class caso01ee {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

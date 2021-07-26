@@ -34,7 +34,7 @@ public class Ativ001g {
 	
 	public static void main(String[] args) {
 		
-		camisas = new RegistroCamisas[10];
+		camisas = new RegistroCamisas[1];
 		
 		for (int i = 0; i < camisas.length; i++) {
 			

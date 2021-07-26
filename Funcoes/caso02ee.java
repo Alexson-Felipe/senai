@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class caso02 {
+public class caso02ee {
 
 	static String nomeCompleto;
 	static String[] primeiroNome;

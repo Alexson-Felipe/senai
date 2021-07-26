@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class caso03 {
+public class caso03ee {
 
 	static String[] nomes;
 	static int quantidadeVogal;

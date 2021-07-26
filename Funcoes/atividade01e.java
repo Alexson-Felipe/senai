@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class atividade01 {
+public class atividade01e {
 
 	static String[] nome;
 	static String nomeM = "";

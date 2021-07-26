@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class caso04 {
+public class caso04ee {
 
 	static String[] nome;
 	static double[] salario = null;

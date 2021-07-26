@@ -1,7 +1,7 @@
 
 import javax.swing.JOptionPane;
 
-public class exemplo {
+public class exemplog {
 
 	static class Conta {
 
