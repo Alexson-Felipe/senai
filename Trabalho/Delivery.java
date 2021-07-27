@@ -1,4 +1,4 @@
-//exemplo criar venda  Teclado pc - 89.90; Monitor 22 - 899.90; Monitor 32 - 1899.90
+//exemplo criar venda  Teclado pc - 89.90; Monitor 22 - 899.90; Monitor 32 - 1899.90; Controle Xbox - 110.00; Controle PS5 - 149.99; Mouse Razer - 349.00
 
 import javax.swing.JOptionPane;
 
@@ -12,9 +12,8 @@ public class Delivery {
 	static Vendas novaVenda;
 	static int contVenda;
 	static String[] queroProdutos;
-	static int[] produtosVendas; 
+	static int[] produtosVendas;
 	static int quantProdutos;
-	static int[] clienteProduto;
 
 	static class Vendas { // VENDA
 		int codigoVendas, clienteVenda;
@@ -28,7 +27,7 @@ public class Delivery {
 	static int contProduto;
 	static String[] produtosCadastrar, separaProduto;
 
-	static class Produto { //PRODUTO
+	static class Produto { // PRODUTO
 		int codigoProduto;
 		String nomeProduto;
 		double valor;
@@ -37,7 +36,7 @@ public class Delivery {
 	static Cliente[] cliente;
 	static Cliente novoCliente;
 	static int contCliente = 0;
-	
+
 	static class Cliente { // CLIENTE
 		int codigo, cpf, telefone;
 		String nome;
@@ -97,14 +96,13 @@ public class Delivery {
 
 	}
 
-	// Procedimento Menu Vendas
+	
 	private static void fazVenda() {
-
+		
 		menu = 0;
 		menu = Integer.parseInt(
 				JOptionPane.showInputDialog("1 - Criar Venda\n2 - Editar Venda\n3 - Visualizar Venda\n4 - Voltar"));
 
-		if (menu >= 1 && menu <= 3) {
 
 			switch (menu) {
 			case 1:
@@ -117,89 +115,140 @@ public class Delivery {
 				editarVenda();
 
 				break;
-
+			case 3:
+				
+				visualizarVenda();
+			case 4:
+				//Volta
+				break;	
+				
 			default:
+				fazVenda();
 				break;
 			}
-		}
 
 	}
 
 	private static void criaVenda() {
 
-		//do {
+		novaVenda = new Vendas();
 
-			novaVenda = new Vendas();
-		
-			do {
-				
-				novaVenda.descricaoVendas = JOptionPane.showInputDialog("Descrição da venda");
+		do {
 
-				if (novaVenda.descricaoVendas.length() >= 5) {
-					;
-					do {
-						quantProdutos = Integer.parseInt(JOptionPane.showInputDialog("Quantos produtos deseja 1 a 5")); 
-						produtosVendas = new int[quantProdutos];
-						
-						if (quantProdutos >= 1 && quantProdutos <= 5) {
-							
-							queroProdutos = JOptionPane.showInputDialog("Quais produtos: Ex: 1, 2, 3, 5, 8...").split(","); 
-							
-							//Adiciona os produtos na venda
-							for (int i = 0; i < queroProdutos.length; i++) {
-								for (int j = 0; j < quantProdutos; j++) {
-									if (Integer.parseInt(queroProdutos[i]) == produto[j].codigoProduto) {
-										novaVenda.prodVenda = produto[j].codigoProduto;
-										
-										System.out.println(produtosVendas[i]);
-									}
-								}	
+			novaVenda.descricaoVendas = JOptionPane.showInputDialog("Descrição da venda");
+
+			if (novaVenda.descricaoVendas.length() >= 5) {
+
+				do {
+					quantProdutos = Integer.parseInt(JOptionPane.showInputDialog("Quantos produtos deseja 1 a 5"));
+					produtosVendas = new int[quantProdutos];
+
+					if (quantProdutos >= 1 && quantProdutos <= 5) {
+
+						queroProdutos = JOptionPane.showInputDialog("Quais produtos: Ex: 0,1,2,3,5,8...").split(",");
+
+						// Adiciona os produtos na venda
+						for (int i = 0; i < queroProdutos.length; i++) {
+							for (int j = 0; j < quantProdutos; j++) {
+								if (Integer.parseInt(queroProdutos[i]) == produto[j].codigoProduto) {
+									novaVenda.prodVenda = produto[j].codigoProduto;
+
+								}
 							}
-							int qualCliente = 0;
-							qualCliente = Integer.parseInt(JOptionPane.showInputDialog("Qual o código do cliente"));
-							
-							for (int i = 0; i < contCliente; i++) {
-								if (qualCliente == cliente[i].codigo) {
-
-										novaVenda.clienteVendas = cliente[i];
-										
-								} 
-								
-							}
-							
-							
-							
-						}else {
-							JOptionPane.showMessageDialog(null, "Quantidade invalida");
 						}
-					} while (quantProdutos <= 0 || quantProdutos > 5);
-					
-					venda[contVenda] = novaVenda;
-					contVenda++;
+						
+						for (int i = 0; i < contVenda; i++) {
+							
+							System.out.println(venda[i].prodVenda);
+						}
 
-				} else {
-					JOptionPane.showMessageDialog(null, "Numero de caracteres precisa ser superior ou igual a 5");
+						// Vincula os produtos ao cliente.
+						int qualCliente = 0;
+						qualCliente = Integer.parseInt(JOptionPane.showInputDialog("Qual o código do cliente"));
 
-				}
-				
-			} while (novaVenda.descricaoVendas.length() < 5);
+						for (int i = 0; i < contCliente; i++) {
+							if (qualCliente == cliente[i].codigo) {
 
-		//} while (novoCliente.nome.length() < 5);
+								novaVenda.clienteVendas = cliente[i];
+								venda[contVenda] = novaVenda;
+							}
+
+						}
+
+					} else {
+
+						JOptionPane.showMessageDialog(null, "Quantidade invalida");
+					}
+
+				} while (quantProdutos <= 0 || quantProdutos > 5);
+
+				contVenda++;
+
+			} else {
+				JOptionPane.showMessageDialog(null, "Numero de caracteres precisa ser superior ou igual a 5");
+
+			}
+
+		} while (novaVenda.descricaoVendas.length() < 5);
 
 	}
 
 	private static void editarVenda() {
 
-		for (int i = 0; i < venda.length; i++) {
-			if (Integer.toString(venda[i].codigoVendas) == "null") {
-				System.out.println("Entrou");
-				// System.out.println(venda[i].codigoVendas);
+		int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Codigo da venda que deseja editar"));
+
+		for (int i = 0; i < contVenda; i++) {
+			if (venda[i].codigoVendas == pesquisa) {
+				do {
+
+					menu = 0;
+					menu = Integer.parseInt(
+							JOptionPane.showInputDialog("1 - Descricao da Venda \n2 - Voltar"));
+
+					switch (menu) {
+					case 1:
+						
+						do {
+							
+							venda[i].descricaoVendas = JOptionPane.showInputDialog("Descrição da venda");
+							
+							if (venda[i].descricaoVendas.length() < 5) {
+								JOptionPane.showMessageDialog(null,"Numero de caracteres precisa ser superior ou igual a 5");
+							}
+
+						} while (venda[i].descricaoVendas.length() < 5);
+						
+						break;
+					case 2:
+
+						break;
+					default:
+						JOptionPane.showMessageDialog(null, "Opcao invalida");
+						break;
+					}
+				} while (menu <= 0 || menu >= 3);
+
 			}
 
 		}
-		// int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Digite o "));
 
 	}
+	
+	private static void visualizarVenda() {
+		int pesquisa = Integer.parseInt(JOptionPane.showInputDialog("Codigo do produto para visualizar"));
+		
+		for (int i = 0; i < contVenda; i++) {
+			if (pesquisa == venda[i].codigoVendas) {
+				JOptionPane.showMessageDialog(null,"Codigo: " + venda[i].codigoVendas
+						+ "\nDescricao: " + venda[i].descricaoVendas 
+						+ "\nQuantidade Produtos: " + venda[i].prodVenda
+						+ "\nCliente: " + venda[i].clienteVendas.codigo + " " + venda[i].clienteVendas.nome);
+					
+			}
+		}
+		
+	}
+	
 	// Fim Menu Vendas.
 
 	// Procedimento Menu Produtos
@@ -266,8 +315,8 @@ public class Delivery {
 
 					if (pesquisa == produto[i].codigoProduto) {
 
-						JOptionPane.showMessageDialog(null, "Codigo Produto: " + produto[i].codigoProduto + "\nDescricao: "
-								+ produto[i].nomeProduto + "\nValor: " + produto[i].valor);
+						JOptionPane.showMessageDialog(null, "Codigo Produto: " + produto[i].codigoProduto
+								+ "\nDescricao: " + produto[i].nomeProduto + "\nValor: " + produto[i].valor);
 					}
 
 				}
@@ -315,12 +364,10 @@ public class Delivery {
 
 	private static void criadorDeCliente() {
 
-		// for (int i = contCliente; i < cliente.length;) {
 		do {
 
 			novoCliente = new Cliente();
 			novoCliente.nome = JOptionPane.showInputDialog("Digite seu nome completo");
-			// novoCliente.codigo = Integer.parseInt(JOptionPane.showInputDialog("cd"));
 
 			if (novoCliente.nome.length() >= 5) {
 
