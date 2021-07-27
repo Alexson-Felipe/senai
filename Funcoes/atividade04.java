@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class atividade04 {
 
@@ -15,7 +16,11 @@ public class atividade04 {
 		itensLista = lista.split(";");
 
 		for (int i = 0; i < itensLista.length; i++) {
+			
+			 Object[] menu = { "OK", "Vendas", "Produtos",  };
+		      JOptionPane.showOptionDialog(null, "Selecione uma opção", "         MENU DELIVERY",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, menu, menu[0]);
 
+		     
 			nomesCidades = itensLista[i].split("-");
 
 			System.out.println("Nome: " + nomesCidades[0] + ". " + "Mora em: " + nomesCidades[1]);
@@ -25,3 +30,5 @@ public class atividade04 {
 	}
 
 }
+
+
