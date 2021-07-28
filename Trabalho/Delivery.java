@@ -44,6 +44,7 @@ public class Delivery {
 	// Fim Variaveis e Registros
 
 	public static void main(String[] args) {
+		
 		// Definindo o tamanho de todos vetores Memoria;
 		venda = new Vendas[quantidade];
 		cliente = new Cliente[quantidade];
@@ -157,11 +158,6 @@ public class Delivery {
 							}
 						}
 						
-						for (int i = 0; i < contVenda; i++) {
-							
-							System.out.println(venda[i].prodVenda);
-						}
-
 						// Vincula os produtos ao cliente.
 						int qualCliente = 0;
 						qualCliente = Integer.parseInt(JOptionPane.showInputDialog("Qual o código do cliente"));
@@ -174,7 +170,6 @@ public class Delivery {
 							}
 
 						}
-
 					} else {
 
 						JOptionPane.showMessageDialog(null, "Quantidade invalida");
@@ -186,11 +181,9 @@ public class Delivery {
 
 			} else {
 				JOptionPane.showMessageDialog(null, "Numero de caracteres precisa ser superior ou igual a 5");
-
 			}
 
 		} while (novaVenda.descricaoVendas.length() < 5);
-
 	}
 
 	private static void editarVenda() {
@@ -399,9 +392,7 @@ public class Delivery {
 			}
 
 		} while (novoCliente.nome.length() < 5);
-		// break;
 
-		// }//Fim do for
 
 	}
 
@@ -421,30 +412,31 @@ public class Delivery {
 					switch (menu) {
 					case 1:
 						do {
-							novoCliente = new Cliente();
-							novoCliente.nome = JOptionPane.showInputDialog("Novo nome");
-							if (novoCliente.nome.length() >= 5) {
+							
+							cliente[i].nome = JOptionPane.showInputDialog("Novo nome");
+							
+							if (cliente[i].nome.length() >= 5) {
 								JOptionPane.showMessageDialog(null, "Alterado com sucesso");
-								cliente[i] = novoCliente;
+								
 							} else {
 								JOptionPane.showMessageDialog(null,
 										"Numero de caracteres precisa ser superior ou igual a 5");
 							}
-						} while (novoCliente.nome.length() < 5);
+						} while (cliente[i].nome.length() < 5);
 
 						break;
 
 					case 2:
 
 						do {
-							novoCliente = new Cliente();
-							novoCliente.cpf = Integer.parseInt(JOptionPane.showInputDialog("Novo CPF"));
+							
+							cliente[i].cpf = Integer.parseInt(JOptionPane.showInputDialog("Novo CPF"));
 							if (Integer.toString(novoCliente.cpf).length() == 8) {
 								JOptionPane.showMessageDialog(null, "Alterado com sucesso");
 							} else {
 								JOptionPane.showMessageDialog(null, "Numero de caracteres precisa igual a 8");
 							}
-						} while (Integer.toString(novoCliente.cpf).length() != 8);
+						} while (Integer.toString(cliente[i].cpf).length() != 8);
 						break;
 
 					case 3:
