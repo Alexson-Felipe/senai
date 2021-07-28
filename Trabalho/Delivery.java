@@ -142,7 +142,7 @@ public class Delivery {
 				do {
 					quantProdutos = Integer.parseInt(JOptionPane.showInputDialog("Quantos produtos deseja 1 a 5"));
 					produtosVendas = new int[quantProdutos];
-
+					
 					if (quantProdutos >= 1 && quantProdutos <= 5) {
 
 						queroProdutos = JOptionPane.showInputDialog("Quais produtos: Ex: 0,1,2,3,5,8...").split(",");
@@ -153,6 +153,7 @@ public class Delivery {
 								if (Integer.parseInt(queroProdutos[i]) == produto[j].codigoProduto) {
 
 									novaVenda.prodVenda[i] = produto[j].codigoProduto;
+									
 
 								}
 							}
@@ -537,8 +538,9 @@ public class Delivery {
 
 			for (int i = 0; i < contVenda; i++) {
 				double soma = 0, totalSoma = 0;
-
-				for (int j = 0; j < venda[0].prodVenda.length; j++) {// venda[0].prodVenda.length
+				System.out.println(venda[i].prodVenda.length);
+				
+				for (int j = 0; j < venda[i].prodVenda.length; j++) {// venda[0].prodVenda.length
 
 					soma += produto[j].valor;
 					System.out.println(soma);
@@ -560,11 +562,12 @@ public class Delivery {
 		case 2:
 			for (int i = 0; i < contVenda; i++) {
 				double soma = 0, totalSoma = 0;
-
-				for (int j = 0; j < venda[0].prodVenda.length; j++) {// venda[0].prodVenda.length
+				
+				for (int j = 0; j < produtosVendas.length; j++) {// venda[0].prodVenda.length
+					//System.out.println();
 
 					soma += produto[j].valor;
-					System.out.println(soma);
+					//System.out.println(soma);
 				}
 
 				totalSoma += soma;
