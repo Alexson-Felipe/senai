@@ -15,5 +15,6 @@
 	<classpathentry kind="src" path="Procedimento"/>
 	<classpathentry kind="src" path="Registro"/>
 	<classpathentry kind="src" path="Trabalho"/>
+	<classpathentry kind="src" path="Resumo"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
